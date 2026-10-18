@@ -13,17 +13,43 @@ function langParts(voice) {
   return normalizeLang(voice && voice.lang).split('-').filter(Boolean);
 }
 
+export const SPEECH_VOICE_OPTIONS = Object.freeze({
+  automatic: '',
+  yasmin: 'online-ms-MY-yasmin',
+  osman: 'online-ms-MY-osman',
+});
+
 export function isMalayVoice(voice) {
   if (!voice) return false;
   const parts = langParts(voice);
   const base = parts[0] || '';
   const region = parts[1] || '';
-  const name = String(voice.name || '');
+  const identity = `${voice.name || ''} ${voice.voiceURI || ''}`;
 
-  // Tolak Bahasa Indonesia secara jelas, termasuk tag ms-ID dan nama yang menyebut Indonesia.
-  if (base === 'id' || region === 'id' || /indonesian|bahasa\s+indonesia/i.test(name)) return false;
+  // Terima Melayu Malaysia sahaja. Kod bahasa ml-IN (Malayalam) dan ta-IN (Tamil)
+  // serta tag lain seperti ms-SG tidak pernah dianggap suara Melayu Malaysia.
+  if (base !== 'ms' || region !== 'my') return false;
+  if (/\b(?:malayalam|tamil|indian|india|indonesian|singapore)\b/i.test(identity)) return false;
+  return true;
+}
 
-  return base === 'ms' || /malay|melayu/i.test(name);
+function voiceIdentity(voice) {
+  return `${voice && voice.name || ''} ${voice && voice.voiceURI || ''}`;
+}
+
+function namedMalayVoice(voices, name) {
+  if (!Array.isArray(voices)) return null;
+  const identity = (voice) => voiceIdentity(voice);
+  const pattern = new RegExp(`\\b${name}\\b`, 'i');
+  // Label pilihan khusus menyatakan “online”, jadi jangan tandakan suara tempatan
+  // yang hanya bernama Yasmin/Osman sebagai suara dalam talian.
+  return voices.find((voice) =>
+    isMalayVoice(voice) && pattern.test(identity(voice)) && /\bonline\b/i.test(identity(voice))
+  ) || null;
+}
+
+function knownVoiceOption(key) {
+  return Object.values(SPEECH_VOICE_OPTIONS).includes(String(key || ''));
 }
 
 export function voiceKey(voice) {
@@ -205,20 +231,15 @@ export function pickVoice(voices, preferredKey = '') {
   if (!malay.length) return null;
 
   const preferred = String(preferredKey || '');
+  if (preferred === SPEECH_VOICE_OPTIONS.yasmin) return namedMalayVoice(malay, 'Yasmin');
+  if (preferred === SPEECH_VOICE_OPTIONS.osman) return namedMalayVoice(malay, 'Osman');
   if (preferred) {
-    const chosen = malay.find((v) => voiceKey(v) === preferred || String(v.voiceURI || '') === preferred);
+    const chosen = malay.find((voice) => voiceKey(voice) === preferred || String(voice.voiceURI || '') === preferred);
     if (chosen) return chosen;
   }
 
-  // Pilih Melayu Malaysia dahulu, kemudian suara Melayu lain.
-  return (
-    malay.find((v) => normalizeLang(v.lang) === 'ms-my') ||
-    malay.find((v) => normalizeLang(v.lang).startsWith('ms-my-')) ||
-    malay.find((v) => normalizeLang(v.lang).startsWith('ms-')) ||
-    malay.find((v) => normalizeLang(v.lang) === 'ms') ||
-    malay.find((v) => /melayu|malay/i.test(String(v.name || ''))) ||
-    malay[0]
-  );
+  // Automatik hanya memilih ms-MY; utamakan suara yang peranti tandakan sebagai lalai.
+  return malay.find((voice) => voice.default) || malay[0];
 }
 
 export const Speech = {
@@ -257,7 +278,8 @@ export const Speech = {
     if (!isBrowser) return;
     this.enabled = settings.tts !== false && settings.sound !== false;
     this.rate = Number(settings.speechRate) || 0.92;
-    this.preferredVoiceKey = String(settings.speechVoice || '');
+    const savedVoice = String(settings.speechVoice || '');
+    this.preferredVoiceKey = knownVoiceOption(savedVoice) ? savedVoice : SPEECH_VOICE_OPTIONS.automatic;
     if (!this.supported) return;
 
     const synth = window.speechSynthesis;
@@ -284,8 +306,18 @@ export const Speech = {
     return this.refreshVoices().slice();
   },
 
+  hasVoiceOption(key) {
+    const option = String(key || '');
+    const voices = this.getMalayVoices();
+    if (option === SPEECH_VOICE_OPTIONS.automatic) return voices.length > 0;
+    if (option === SPEECH_VOICE_OPTIONS.yasmin) return !!namedMalayVoice(voices, 'Yasmin');
+    if (option === SPEECH_VOICE_OPTIONS.osman) return !!namedMalayVoice(voices, 'Osman');
+    return false;
+  },
+
   setVoice(key) {
-    this.preferredVoiceKey = String(key || '');
+    const selected = String(key || '');
+    this.preferredVoiceKey = knownVoiceOption(selected) ? selected : SPEECH_VOICE_OPTIONS.automatic;
     this.refreshVoices();
     return this.voice;
   },
@@ -298,9 +330,13 @@ export const Speech = {
   statusText() {
     if (!this.supported) return 'Pelayar ini tidak menyokong bacaan suara.';
     this.refreshVoices();
-    if (!this.voice) return 'Tiada suara Bahasa Melayu tersedia. Suara bahasa lain tidak akan digunakan.';
+    if (!this.voice) {
+      if (this.preferredVoiceKey === SPEECH_VOICE_OPTIONS.yasmin) return 'Yasmin online - Malay tidak tersedia melalui suara pelayar/peranti ini. Audio tidak dimainkan.';
+      if (this.preferredVoiceKey === SPEECH_VOICE_OPTIONS.osman) return 'Osman online - Malay tidak tersedia melalui suara pelayar/peranti ini. Audio tidak dimainkan.';
+      return 'Tiada suara Bahasa Melayu Malaysia (ms-MY) tersedia. Suara bahasa lain tidak akan digunakan.';
+    }
     const lang = this.voice.lang || 'ms-MY';
-    return `Suara Melayu aktif: ${this.voice.name || 'Melayu'} (${lang}).`;
+    return `Suara Melayu Malaysia aktif: ${this.voice.name || 'Melayu'} (${lang}).`;
   },
 
   voiceKey(voice) {

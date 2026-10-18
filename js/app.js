@@ -7,7 +7,7 @@ import '../modules/bijak-wang/bijak-wang.js';
 import '../modules/detektif-digital/detektif-digital.js';
 import { Store, todayKey } from './storage.js';
 import { Sound, initSoundFromSettings } from './audio.js';
-import { Speech } from './speech.js';
+import { Speech, SPEECH_VOICE_OPTIONS } from './speech.js';
 import { openDemo } from './demo.js';
 import { applyAccessibility, fontScaleLabel, prefersReducedMotion } from './accessibility.js';
 import { Offline } from './offline.js';
@@ -23,7 +23,7 @@ import {
 } from './progress.js';
 import { esc } from './shared.js';
 
-const APP_VERSION = '1.1.4';
+const APP_VERSION = '1.1.5';
 // Dedahkan objek suara untuk ujian automatik & penyahpepijatan (bukan data pengguna).
 if (typeof window !== 'undefined') window.__CILIK_SPEECH = Speech;
 const view = document.getElementById('view');
@@ -39,29 +39,27 @@ let parentUnlocked = false;
 let toastTimer = null;
 
 function speechVoiceOptions(selectedKey = String((state && state.settings && state.settings.speechVoice) || '')) {
-  const voices = Speech.getMalayVoices();
-  if (!voices.length) return '<option value="">Tiada suara Bahasa Melayu tersedia</option>';
-  const hasSelected = voices.some((voice) => Speech.voiceKey(voice) === selectedKey);
-  return (
-    `<option value="" ${hasSelected ? '' : 'selected'}>Automatik (utamakan Melayu Malaysia)</option>` +
-    voices
-      .map((voice) => {
-        const key = Speech.voiceKey(voice);
-        const label = `${voice.name || 'Suara Melayu'} (${voice.lang || 'ms-MY'})`;
-        return `<option value="${esc(key)}" ${key === selectedKey ? 'selected' : ''}>${esc(label)}</option>`;
-      })
-      .join('')
-  );
+  const keys = Object.values(SPEECH_VOICE_OPTIONS);
+  const selected = keys.includes(selectedKey) ? selectedKey : SPEECH_VOICE_OPTIONS.automatic;
+  const choices = [
+    { key: SPEECH_VOICE_OPTIONS.automatic, label: 'Automatik', enabled: true },
+    { key: SPEECH_VOICE_OPTIONS.yasmin, label: 'Yasmin online - Malay', enabled: Speech.hasVoiceOption(SPEECH_VOICE_OPTIONS.yasmin) },
+    { key: SPEECH_VOICE_OPTIONS.osman, label: 'Osman online - Malay', enabled: Speech.hasVoiceOption(SPEECH_VOICE_OPTIONS.osman) },
+  ];
+  return choices.map(({ key, label, enabled }) =>
+    `<option value="${esc(key)}" ${key === selected ? 'selected' : ''} ${enabled ? '' : 'disabled'}>${esc(label)}</option>`
+  ).join('');
 }
 
 function refreshSpeechControls() {
   const select = document.getElementById('speech-voice');
   if (select) {
-    const voices = Speech.getMalayVoices();
     const selectedKey = String((state && state.settings && state.settings.speechVoice) || '');
-    select.innerHTML = speechVoiceOptions(selectedKey);
-    select.disabled = voices.length === 0;
-    select.value = voices.some((voice) => Speech.voiceKey(voice) === selectedKey) ? selectedKey : '';
+    const validKeys = Object.values(SPEECH_VOICE_OPTIONS);
+    const selected = validKeys.includes(selectedKey) ? selectedKey : SPEECH_VOICE_OPTIONS.automatic;
+    select.innerHTML = speechVoiceOptions(selected);
+    select.disabled = !Speech.available();
+    select.value = selected;
   }
   const status = document.getElementById('tts-state');
   if (status) status.textContent = Speech.statusText();
@@ -780,10 +778,10 @@ function renderSettings() {
         ${switchHTML('sw-tts', state.settings.tts, 'Suara arahan')}
       </div>
       <div class="setting-row">
-        <div class="lbl"><strong>Suara Bahasa Melayu</strong><span>Pilih suara yang paling jelas pada peranti ini. Automatik mengutamakan Melayu Malaysia.</span></div>
+        <div class="lbl"><strong>Suara Bahasa Melayu (Malaysia)</strong><span>Hanya suara ms-MY. Yasmin dan Osman boleh dipilih jika suara dalam talian itu tersedia pada pelayar/peranti; jika tiada, pilihan tersebut tidak aktif dan teks kekal.</span></div>
         <div class="field" style="margin:0;min-width:220px">
           <label for="speech-voice">Pilihan suara</label>
-          <select id="speech-voice" aria-label="Pilih suara Bahasa Melayu" ${Speech.getMalayVoices().length ? '' : 'disabled'}>${speechVoiceOptions()}</select>
+          <select id="speech-voice" aria-label="Pilih suara Bahasa Melayu Malaysia" ${Speech.available() ? '' : 'disabled'}>${speechVoiceOptions()}</select>
         </div>
       </div>
       <div class="setting-row">

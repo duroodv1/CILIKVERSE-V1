@@ -6,7 +6,7 @@
  *  - Data pengguna (IndexedDB/localStorage) TIDAK pernah disentuh oleh service worker
  */
 
-const CACHE_VERSION = 'cilikverse-v1.1.4';
+const CACHE_VERSION = 'cilikverse-v1.1.5';
 const PRECACHE = [
   './',
   './index.html',
