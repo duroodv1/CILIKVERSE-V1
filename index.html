@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="ms" data-font="normal">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>CILIKVERSE V.1 — Aplikasi Pendidikan Interaktif untuk Kanak-kanak PPKI 9–12</title>
+    <meta
+      name="description"
+      content="Aplikasi pendidikan interaktif Bahasa Melayu untuk kanak-kanak PPKI 9–12 tahun. 90 permainan coding, kewangan dan keselamatan digital dengan arahan bersuara, contoh demonstrasi dan tahap kesukaran. Boleh dimainkan tanpa internet."
+    />
+    <meta name="theme-color" content="#0e7ae6" />
+    <meta name="color-scheme" content="light" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="apple-mobile-web-app-title" content="CILIKVERSE" />
+    <link rel="manifest" href="./manifest.webmanifest" />
+    <link rel="icon" href="./assets/icons/favicon.ico" sizes="any" />
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/icons/favicon-32.png" />
+    <link rel="apple-touch-icon" href="./assets/icons/apple-touch-icon.png" />
+    <link rel="stylesheet" href="./css/main.css" />
+    <link rel="stylesheet" href="./css/responsive.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#view">Langkau ke kandungan</a>
+
+    <header class="topbar" id="topbar" hidden>
+      <button class="brand-mini" id="brand-home" aria-label="Kembali ke halaman utama">
+        <img src="./assets/icons/icon-192.png" alt="" width="34" height="34" />
+        <span>CILIKVERSE <em>V.1</em></span>
+      </button>
+      <div class="topbar-status">
+        <span class="status-chip" id="net-chip" title="Status internet">🌐 <span>Menyemak…</span></span>
+        <span class="status-chip" id="ai-chip" title="Status pembantu AI">🤖 <span>AI</span></span>
+      </div>
+    </header>
+
+    <main id="view" tabindex="-1" aria-live="polite">
+      <noscript>
+        <div class="boot">
+          <h1>CILIKVERSE V.1</h1>
+          <p>JavaScript perlu dihidupkan untuk memainkan permainan. Sila hidupkan JavaScript dan muat semula.</p>
+        </div>
+      </noscript>
+    </main>
+
+    <div class="update-banner" id="update-banner" hidden role="status">
+      <span>Versi baharu CILIKVERSE tersedia.</span>
+      <button class="btn small" id="update-btn">Muat semula</button>
+      <button class="icon-btn" id="update-dismiss" aria-label="Tutup">✕</button>
+    </div>
+
+    <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+
+    <button class="assistant-fab" id="assistant-fab" aria-label="Buka pembantu pembelajaran CILI" title="Tanya CILI">
+      <span class="fab-face" aria-hidden="true"><img src="./assets/images/cili-avatar-64.png" alt="" width="30" height="30" /></span>
+      <span class="fab-label">Tanya CILI</span>
+    </button>
+
+    <div class="assistant-panel" id="assistant-panel" role="dialog" aria-modal="true" aria-labelledby="assistant-title" hidden>
+      <div class="assistant-head">
+        <div class="head-left">
+          <img src="./assets/images/cili-avatar-128.png" alt="Maskot CILI" width="44" height="44" />
+          <div>
+            <h2 id="assistant-title">CILI — Pembantu Pembelajaran</h2>
+            <p class="tiny" id="assistant-status">Teman setempat • berfungsi tanpa internet</p>
+          </div>
+        </div>
+        <button class="icon-btn" id="assistant-close" aria-label="Tutup pembantu">✕</button>
+      </div>
+      <div class="assistant-log" id="assistant-log" aria-live="polite"></div>
+      <div class="assistant-quick" id="assistant-quick"></div>
+      <form class="assistant-form" id="assistant-form">
+        <label class="sr-only" for="assistant-input">Taip soalan</label>
+        <input id="assistant-input" maxlength="200" placeholder="Contoh: Bagaimana cara mengira baki wang?" autocomplete="off" />
+        <button class="btn primary" type="submit">Hantar</button>
+      </form>
+      <p class="tiny assistant-note">
+        Jangan taip nama penuh, alamat, nombor telefon atau maklumat bank. CILI hanya memberi petunjuk, bukan jawapan akhir.
+      </p>
+    </div>
+
+    <div class="modal-overlay" id="modal" hidden>
+      <div class="modal" id="modal-box" role="dialog" aria-modal="true" aria-labelledby="modal-title"></div>
+    </div>
+
+    <script type="module" src="./js/app.js"></script>
+  </body>
+</html>

@@ -1,0 +1,156 @@
+{
+  "app": "CILIKVERSE V.1",
+  "note": "Jawapan setempat untuk pembantu CILI. Semua kandungan sesuai untuk kanak-kanak 9-12 tahun. Tiada data dihantar ke internet.",
+  "items": [
+    {
+      "id": "coding",
+      "q": "Apakah maksud coding?",
+      "keywords": ["coding", "kod", "program", "pengaturcaraan", "apa itu coding"],
+      "a": "Coding ialah cara kita memberi arahan kepada komputer atau robot. Arahan disusun langkah demi langkah, seperti resipi. Contohnya: 'gerak ke kanan, kemudian ke bawah'. Cuba fikirkan satu langkah pada satu masa!"
+    },
+    {
+      "id": "algoritma",
+      "q": "Apakah algoritma?",
+      "keywords": ["algoritma", "algorithm", "langkah"],
+      "a": "Algoritma ialah senarai langkah yang tersusun untuk menyelesaikan sesuatu tugasan. Contoh algoritma mudah: 1) ambil berus gigi, 2) letak ubat gigi, 3) gosok gigi, 4) bilas. Urutan yang betul sangat penting!"
+    },
+    {
+      "id": "gelung",
+      "q": "Apakah maksud arahan berulang?",
+      "keywords": ["ulang", "loop", "gelung", "berulang", "kod berulang"],
+      "a": "Arahan berulang bermaksud arahan yang sama dijalankan beberapa kali. Jika robot perlu bergerak ke kanan 4 kali, kita boleh tulis 'ulang 4 kali: kanan' daripada menulis kanan 4 kali. Ia menjimatkan arahan!"
+    },
+    {
+      "id": "robot",
+      "q": "Apakah bahagian asas robot?",
+      "keywords": ["robot", "bahagian robot", "sensor", "motor", "robotik"],
+      "a": "Robot mudah ada badan, pengawal (otak), motor dan roda untuk bergerak, sensor untuk mengesan persekitaran, serta bateri untuk tenaga. Sensor jarak membantu robot mengelak dinding."
+    },
+    {
+      "id": "ai",
+      "q": "Apakah kecerdasan buatan (AI)?",
+      "keywords": ["ai", "kecerdasan buatan", "artificial", "mesin pintar"],
+      "a": "AI ialah sistem komputer yang belajar daripada data untuk mengenal corak dan membuat keputusan. Contohnya, mencadangkan video atau mengenal suara. AI bukan manusia — ia boleh tersalah, jadi kita perlu berfikir dan menyemak."
+    },
+    {
+      "id": "ai-salah",
+      "q": "Mengapa AI boleh memberikan jawapan yang salah?",
+      "keywords": ["ai salah", "jawapan ai", "ai betul", "ai tersalah", "ai percaya"],
+      "a": "AI belajar daripada data. Jika data tidak lengkap atau lama, jawapannya boleh salah. AI juga boleh kelihatan yakin walaupun salah. Sebab itu, semak dengan buku, guru atau orang dewasa yang dipercayai."
+    },
+    {
+      "id": "wang",
+      "q": "Bagaimana cara mengira baki wang?",
+      "keywords": ["baki", "wang", "duit", "kira baki", "pulangan", "ringgit"],
+      "a": "Baki = wang yang dibayar − harga barang. Contoh: kamu bayar RM10 dan barang berharga RM6.50, jadi baki ialah RM3.50. Cuba kira dalam sen dahulu: 1000 sen − 650 sen = 350 sen."
+    },
+    {
+      "id": "simpanan",
+      "q": "Mengapa kita perlu menyimpan wang?",
+      "keywords": ["simpan", "simpanan", "menabung", "tabung", "balang"],
+      "a": "Simpanan membantu kita mencapai sasaran dan bersedia untuk kecemasan. Simpan sedikit demi sedikit setiap minggu. Contoh: simpan RM2 seminggu, dalam 5 minggu kamu ada RM10."
+    },
+    {
+      "id": "keperluan",
+      "q": "Apakah beza keperluan dan kehendak?",
+      "keywords": ["keperluan", "kehendak", "perlu", "mahu", "bajet"],
+      "a": "Keperluan ialah perkara yang kita perlukan untuk hidup dan belajar, seperti makanan, air dan buku. Kehendak membuat kita gembira tetapi boleh ditangguhkan, seperti mainan baharu. Bayar keperluan dahulu, kemudian simpan, barulah kehendak."
+    },
+    {
+      "id": "bajet",
+      "q": "Bagaimana merancang bajet?",
+      "keywords": ["bajet", "belanja", "perbelanjaan", "rancang wang", "wang poket"],
+      "a": "1) Tulis jumlah wang. 2) Senaraikan keperluan. 3) Tetapkan jumlah simpanan. 4) Barulah rancang kehendak dengan baki wang. Pastikan jumlah semuanya tidak melebihi wang kamu."
+    },
+    {
+      "id": "wang-hadiah",
+      "q": "Apa patut dibuat dengan wang hadiah?",
+      "keywords": ["wang hadiah", "duit raya", "hadiah", "duit"],
+      "a": "Cara bijak: simpan sebahagian dahulu (contohnya separuh), gunakan sebahagian untuk keperluan, dan tinggalkan sedikit untuk kehendak. Jangan belanja semuanya dalam satu hari."
+    },
+    {
+      "id": "privasi",
+      "q": "Mengapa saya perlu menjaga maklumat peribadi?",
+      "keywords": ["privasi", "maklumat peribadi", "alamat", "nombor telefon", "rahsia", "data"],
+      "a": "Maklumat peribadi seperti alamat, nombor telefon, nama sekolah dan kata laluan boleh digunakan oleh orang jahat. Jangan kongsi dengan orang tidak dikenali. Jika seseorang meminta, berhenti dan beritahu ibu bapa atau penjaga."
+    },
+    {
+      "id": "kata-laluan",
+      "q": "Bagaimana membina kata laluan yang selamat?",
+      "keywords": ["kata laluan", "password", "pin", "selamat"],
+      "a": "Gunakan kata laluan panjang dengan huruf besar, huruf kecil, nombor dan simbol, contohnya 'BiruKucing#27'. Jangan gunakan nama sendiri atau tarikh lahir. Jangan kongsi kata laluan dengan sesiapa kecuali ibu bapa. Jangan taip kata laluan sebenar dalam permainan."
+    },
+    {
+      "id": "penipuan",
+      "q": "Bagaimana saya mengenali mesej penipuan?",
+      "keywords": ["penipuan", "scam", "tipu", "mesej", "hadiah palsu", "mencurigakan"],
+      "a": "Tanda penipuan: janji hadiah luar biasa, minta kata laluan atau nombor kad bank, desak bertindak segera, dan minta bayaran untuk menerima hadiah. Jangan balas, jangan klik, dan beritahu orang dewasa."
+    },
+    {
+      "id": "pautan",
+      "q": "Adakah selamat menekan pautan yang dihantar orang tidak dikenali?",
+      "keywords": ["pautan", "link", "klik", "url", "mencurigakan"],
+      "a": "Tidak. Jangan klik pautan daripada orang tidak dikenali. Walaupun daripada rakan, sahkan dahulu melalui panggilan atau berjumpa. Jika terklik, beritahu ibu bapa atau guru dengan segera."
+    },
+    {
+      "id": "berita-palsu",
+      "q": "Bagaimana menyemak berita yang meragukan?",
+      "keywords": ["berita", "palsu", "fakta", "pendapat", "maklumat", "semak"],
+      "a": "Baca kandungan penuh, bukan tajuk sahaja. Semak siapa yang menulis dan cari sumber kedua yang boleh dipercayai. Bezakan fakta (boleh disemak) dengan pendapat (pandangan seseorang). Jika ragu-ragu, jangan kongsi."
+    },
+    {
+      "id": "buli",
+      "q": "Apa perlu dibuat jika saya dibuli dalam talian?",
+      "keywords": ["buli", "buli siber", "dibuli", "hina", "ugut", "ganggu"],
+      "a": "Jangan balas. Simpan bukti (tangkap layar), sekat pengirim dan laporkan dalam aplikasi. Beritahu ibu bapa, penjaga atau guru dengan segera. Kamu tidak keseorangan dan meminta bantuan bukan tanda lemah."
+    },
+    {
+      "id": "bantuan",
+      "q": "Siapa yang boleh saya minta bantuan?",
+      "keywords": ["bantuan", "takut", "tidak selamat", "bahaya", "dewasa", "guru", "ibu bapa"],
+      "a": "Beritahu ibu bapa, penjaga, guru atau ahli keluarga yang dipercayai. Jika ada bahaya segera, hubungi talian kecemasan 999. Berhenti berinteraksi dengan orang yang membuatkan kamu tidak selamat."
+    },
+    {
+      "id": "masa-skrin",
+      "q": "Berapa lama saya boleh menggunakan peranti?",
+      "keywords": ["masa skrin", "screen time", "peranti", "telefon", "rehat"],
+      "a": "Seimbangkan masa skrin dengan belajar, bergerak, masa keluarga dan tidur. Rehatkan mata setiap 20 minit dengan melihat objek jauh. Ikut had masa yang ditetapkan ibu bapa dalam tetapan aplikasi."
+    },
+    {
+      "id": "hak-cipta",
+      "q": "Bolehkah saya menggunakan gambar orang lain?",
+      "keywords": ["hak cipta", "copyright", "gambar", "karya", "izin", "salin"],
+      "a": "Minta izin pencipta dan berikan kredit. Jangan dakwa karya orang lain sebagai milik sendiri. Untuk projek sekolah, semak syarat penggunaan dan tulis sumber."
+    },
+    {
+      "id": "xp",
+      "q": "Bagaimana saya mendapat XP dan lencana?",
+      "keywords": ["xp", "lencana", "badge", "tahap", "ganjaran", "markah"],
+      "a": "Kamu mendapat XP setiap kali menyelesaikan permainan. Lebih banyak bintang, lebih banyak XP. Lencana dibuka apabila kamu menyelesaikan bilangan permainan tertentu. Semua kemajuan disimpan dalam peranti ini."
+    },
+    {
+      "id": "bintang",
+      "q": "Bagaimana mendapat 3 bintang?",
+      "keywords": ["bintang", "3 bintang", "markah penuh", "skor"],
+      "a": "Jawab dengan tepat pada percubaan pertama. Cuba baca arahan dan petunjuk dengan teliti. Jika belum dapat 3 bintang, tekan 'Ulang Permainan' — soalan akan berubah!"
+    },
+    {
+      "id": "offline",
+      "q": "Bolehkah saya bermain tanpa internet?",
+      "keywords": ["offline", "tanpa internet", "internet", "data", "sambungan"],
+      "a": "Boleh, selepas aplikasi selesai dimuatkan atau dipasang. Kesemua 90 permainan, markah dan kemajuan berfungsi tanpa internet. Hanya ciri AI awan (jika diaktifkan ibu bapa) memerlukan internet."
+    },
+    {
+      "id": "kemajuan",
+      "q": "Di manakah data kemajuan saya disimpan?",
+      "keywords": ["kemajuan", "simpan", "data", "progress", "sandaran"],
+      "a": "Kemajuan disimpan dalam peranti kamu sendiri (storan aplikasi). Ia tidak dihantar ke pelayan. Ibu bapa boleh membuat sandaran melalui Tetapan → Ibu Bapa → Sandarkan kemajuan."
+    },
+    {
+      "id": "permainan-bantuan",
+      "q": "Bagaimana saya boleh menyelesaikan permainan ini?",
+      "keywords": ["cara main", "selesaikan", "permainan ini", "bantu", "petunjuk", "buntu"],
+      "a": "Baca arahan di atas skrin. Tekan butang 💡 untuk petunjuk. Cuba fikirkan satu langkah pada satu masa, dan gunakan butang 'Ulang Permainan' jika perlu. CILI tidak memberikan jawapan akhir — kamu boleh lakukannya!"
+    }
+  ]
+}

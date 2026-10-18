@@ -1,0 +1,302 @@
+/* CILIKVERSE V.1 — Gaya responsif */
+
+@media (max-width: 900px) {
+  .module-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .module-card {
+    min-height: 210px;
+  }
+
+  .maze-wrap {
+    grid-template-columns: 1fr;
+  }
+
+  .maze {
+    justify-content: center;
+  }
+
+  .code-actions {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  body {
+    line-height: 1.5;
+  }
+
+  .topbar {
+    padding: 8px 12px;
+    flex-wrap: wrap;
+  }
+
+  .brand-mini span {
+    font-size: 0.88rem;
+  }
+
+  .topbar-status {
+    gap: 6px;
+  }
+
+  .status-chip {
+    font-size: 0.68rem;
+    padding: 3px 8px;
+  }
+
+  #view {
+    padding: 12px 12px 110px;
+  }
+
+  .hero {
+    border-radius: 22px;
+    padding: 18px;
+  }
+
+  .hero-logo {
+    width: 66px;
+    height: 66px;
+    border-radius: 16px;
+  }
+
+  .hero-title {
+    font-size: 1.85rem;
+  }
+
+  .hero-top {
+    gap: 12px;
+  }
+
+  .profile-row {
+    padding: 10px 12px;
+  }
+
+  .profile-stats {
+    gap: 10px;
+    width: 100%;
+    justify-content: space-between;
+    border-top: 1px solid rgba(255, 255, 255, 0.25);
+    padding-top: 8px;
+  }
+
+  .module-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .module-card {
+    min-height: 168px;
+  }
+
+  .module-emoji {
+    font-size: 2.1rem;
+  }
+
+  .quick-actions {
+    grid-template-columns: 1fr;
+  }
+
+  .module-hero {
+    padding: 16px;
+  }
+
+  .module-hero .big-emoji {
+    font-size: 2.4rem;
+  }
+
+  .module-hero .hero-meta {
+    margin-left: 0;
+    width: 100%;
+    justify-content: flex-start;
+    gap: 22px;
+  }
+
+  .game-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .game-card {
+    padding: 10px 12px;
+  }
+
+  .game-wrap {
+    border-radius: 18px;
+    padding: 12px;
+  }
+
+  .choices {
+    grid-template-columns: 1fr;
+  }
+
+  .choice-btn {
+    min-height: 54px;
+    font-size: 0.94rem;
+  }
+
+  .multi-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .budget-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .match-wrap {
+    gap: 8px;
+  }
+
+  .match-card {
+    font-size: 0.84rem;
+    padding: 10px;
+    min-height: 56px;
+  }
+
+  .group-row {
+    align-items: flex-start;
+  }
+
+  .group-lab {
+    min-width: 100%;
+  }
+
+  .maze {
+    grid-template-columns: repeat(var(--cols), min(10.5vw, 40px));
+    gap: 3px;
+    padding: 6px;
+    width: fit-content;
+    margin: 0 auto;
+  }
+
+  .maze-cell {
+    width: min(10.5vw, 40px);
+    height: min(10.5vw, 40px);
+    font-size: 1.05rem;
+    border-radius: 6px;
+  }
+
+  .mini-grid {
+    grid-template-columns: repeat(var(--cols), 30px);
+  }
+
+  .mg-cell {
+    width: 30px;
+    height: 30px;
+    font-size: 0.95rem;
+  }
+
+  .code-actions {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .amount-display {
+    font-size: 1.7rem;
+  }
+
+  .numpad button {
+    min-height: 52px;
+  }
+
+  .game-actions .btn {
+    min-width: 0;
+  }
+
+  .game-foot {
+    flex-wrap: wrap;
+  }
+
+  .game-title {
+    font-size: 1.2rem;
+  }
+
+  .result-actions .btn {
+    width: 100%;
+  }
+
+  .badge-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .assistant-fab {
+    right: 12px;
+    bottom: 12px;
+    padding: 9px 13px 9px 10px;
+  }
+
+  .fab-label {
+    font-size: 0.78rem;
+  }
+
+  .assistant-panel {
+    right: 8px;
+    left: 8px;
+    width: auto;
+    bottom: 68px;
+    max-height: calc(100vh - 90px);
+  }
+
+  .update-banner {
+    left: 10px;
+    right: 10px;
+    top: auto;
+    bottom: 68px;
+    justify-content: space-between;
+  }
+
+  .toast {
+    bottom: 80px;
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 380px) {
+  .hero-title {
+    font-size: 1.6rem;
+  }
+
+  .profile-stats {
+    font-size: 0.7rem;
+  }
+
+  .sort-btns button {
+    width: 38px;
+    height: 38px;
+  }
+
+  .group-btns button {
+    font-size: 0.72rem;
+    padding: 5px 9px;
+  }
+}
+
+@media (min-width: 1280px) {
+  #view {
+    max-width: 1120px;
+  }
+
+  .game-wrap {
+    max-width: 940px;
+  }
+}
+
+/* Skrin mendatar pendek */
+@media (max-height: 520px) and (orientation: landscape) {
+  .hero {
+    padding: 14px;
+  }
+
+  .hero-logo {
+    width: 58px;
+    height: 58px;
+  }
+
+  .assistant-panel {
+    max-height: calc(100vh - 70px);
+  }
+}
+
+/* Skrin besar / TV */
+@media (min-width: 1600px) {
+  html {
+    font-size: 18px;
+  }
+}

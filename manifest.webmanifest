@@ -1,0 +1,55 @@
+{
+  "name": "CILIKVERSE V.1 — Belajar, Berfikir, Bijak Bertindak",
+  "short_name": "CILIKVERSE",
+  "description": "Aplikasi pendidikan interaktif Bahasa Melayu untuk kanak-kanak PPKI 9–12 tahun: RoboCilik AI, Bijak Wang Junior dan Detektif Digital, dengan arahan bersuara dan contoh demonstrasi. Boleh dimainkan tanpa internet.",
+  "lang": "ms",
+  "id": "./",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "display_override": ["standalone", "window-controls-overlay", "minimal-ui"],
+  "orientation": "any",
+  "background_color": "#eef7ff",
+  "theme_color": "#0e7ae6",
+  "categories": ["education", "kids", "games"],
+  "icons": [
+    {
+      "src": "assets/icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "assets/icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "assets/icons/icon-512-maskable.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "RoboCilik AI",
+      "short_name": "RoboCilik",
+      "url": "./#/module/robocilik",
+      "icons": [{ "src": "assets/icons/icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Bijak Wang Junior",
+      "short_name": "Bijak Wang",
+      "url": "./#/module/bijak-wang",
+      "icons": [{ "src": "assets/icons/icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Detektif Digital",
+      "short_name": "Detektif",
+      "url": "./#/module/detektif-digital",
+      "icons": [{ "src": "assets/icons/icon-192.png", "sizes": "192x192" }]
+    }
+  ]
+}
